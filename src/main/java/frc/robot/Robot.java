@@ -7,10 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
-//import frc.robot.subsystems.hornSubsystem;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.hornSubsystem;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.CvSink;
 import edu.wpi.first.cscore.CvSource;
@@ -18,7 +18,7 @@ import edu.wpi.first.cscore.CvSource;
 /** This is a demo program showing how to use Mecanum control with the MecanumDrive class. */
 public class Robot extends TimedRobot {
   public static RobotContainer m_robotContainer;
-  //public static hornSubsystem m_horn;
+  public static hornSubsystem m_horn;
 
 
 
@@ -76,8 +76,10 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     // Use the joystick X axis for lateral movement, Y axis for forward
     // movement, and Z axis for rotation.
+    CommandScheduler.getInstance().run();
     m_robotDrive.arcadeDrive(-m_stick.getY() * 0.75, m_stick.getX() * 0.75);
-    //m_horn = new hornSubsystem();
+    m_horn = new hornSubsystem();
+
 
   }
 }

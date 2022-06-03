@@ -2,14 +2,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-//import frc.robot.commands.hornCommand;
+import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
-//import frc.robot.subsystems.PneumaticsSubsystem;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.*;
 //import frc.robot.subsystems.ReloadSubsystem;
-import edu.wpi.first.wpilibj2.command.button.*;
+//import edu.wpi.first.wpilibj2.command.button.*;
 
 public class RobotContainer {
 
@@ -21,7 +21,7 @@ public class RobotContainer {
     public final static Joystick mechJoy = new Joystick(Constants.mechJoyPort);
 
     //Pneumatics Subsystems and Commands
-    //PneumaticsSubsystem pneumaticsSubsystem = new PneumaticsSubsystem();
+    PneumaticsSubsystem pneumaticsSubsystem = new PneumaticsSubsystem();
     //ReloadSubsystem reloadSubsystem = new ReloadSubsystem();
 
     //PneumaticsExtendPistonCommand pneumaticsExtendPistonCommand = new PneumaticsExtendPistonCommand(pneumaticsSubsystem);
@@ -128,7 +128,7 @@ public class RobotContainer {
 
 
         //mechButton9.whileHeld(new shootCommand());
-        //mechButton8.whileHeld(new hornCommand());
+        mechButton8.whileHeld(new hornCommand());
     }
 
 /**
